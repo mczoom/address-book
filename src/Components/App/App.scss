@@ -1,0 +1,16 @@
+$background-root: rgb(44, 42, 42);
+$background-content: rgb(107, 103, 103);
+
+.page {
+  background-color: $background-root;
+}
+
+.main {
+  display: flex;
+  max-width: 1280px;
+  min-height: 100vh;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 40px 350px 0;
+  background-color: $background-content;
+}
