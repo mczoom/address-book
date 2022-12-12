@@ -7,9 +7,9 @@ $background-content: rgb(107, 103, 103);
 
 .main {
   display: flex;
+  flex-direction: column;
   max-width: 1280px;
   min-height: 100vh;
-  justify-content: center;
   margin: 0 auto;
   padding: 40px 350px 0;
   background-color: $background-content;

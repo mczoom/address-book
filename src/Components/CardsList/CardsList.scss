@@ -1,0 +1,24 @@
+.cardsList {
+padding-top: 100px;
+}
+
+.cardsList__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 100%;
+    column-gap: 24px;
+    row-gap: 37px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-items: center;
+}
+
+.cardsList__card {
+    padding-left: 20px;
+    min-height: 100px;
+    width: 250px;
+    text-align: start;
+    background-color: rgb(187, 182, 182);
+    border-radius: 20px;
+}
