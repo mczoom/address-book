@@ -1,3 +1,37 @@
+%name-font {
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 121%;
+}
+
+%info-font {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 121%;
+}
+
 .card {
-    max-height: 100px;
+    @extend %info-font;
+    max-height: 250px;
+    padding: 10px 0 10px 30px;
+    width: 450px;
+    text-align: start;
+    background-color: rgb(187, 182, 182);
+    border-radius: 20px;
+    box-shadow: 10px 15px 0 0 #e49d8a;
+    cursor: pointer;
+}
+
+.card__wrap {
+    display: flex;
+    align-items: center;
+}
+
+.card__employee-name {
+    @extend %name-font;
+}
+
+.card__icon {
+    height: 30px;
+    margin-right: 12px;
 }
