@@ -11,28 +11,40 @@ export default function CardPopup({card, isPopupOpen, closePopup}: CardPopupProp
 
     const popupClassName = `${isPopupOpen ? 'card-popup' : 'card-popup_hidden'}`
 
+    function ClosePopupByOverlayClick (e: React.SyntheticEvent) {
+        if(e.target === e.currentTarget) {
+            closePopup();
+        }
+    }
+
 
   return (
-    <div className={popupClassName}>
+    <div className={popupClassName} onClick={ClosePopupByOverlayClick}>
         <div className='card-popup__container'>
             <button className='card-popup__close-btn' type='button' onClick={closePopup}></button>
             <p className='card-popup__name'>{card?.name}</p>
-            <div className='card-popup__info-wrap'>
-                <div className='info-wrap__column'>
-                    <p>Телефон:</p>
-                    <p>Почта:</p>
-                    <p>Дата приема:</p>
-                    <p>Должность:</p>
-                    <p>Подразделение:</p>
-                </div>
-                <div className='info-wrap__column'>
-                    <p>{card?.phone}</p>
-                    <p>{card?.email}</p>
-                    <p>{card?.hire_date}</p>
-                    <p>{card?.position_name}</p>
-                    <p>{card?.department}</p>
-                </div>
+            <div className='container__info-row'>
+                <p className='info-row__title'>Телефон:</p>
+                <p className='info-row__value'>{card?.phone}</p>
             </div>
+            <div className='container__info-row'>
+                <p className='info-row__title'>Почта:</p>
+                <p className='info-row__value'>{card?.email}</p>
+            </div>
+            <div className='container__info-row'>
+                <p className='info-row__title'>Дата приема:</p>
+                <p className='info-row__value'>{card?.hire_date}</p>
+            </div>
+            <div className='container__info-row'>
+                <p className='info-row__title'>Должность:</p>
+                <p className='info-row__value'>{card?.position_name}</p>
+            </div>
+            <div className='container__info-row'>
+                <p className='info-row__title'>Подразделение:</p>
+                <p className='info-row__value'>{card?.department}</p>
+            </div>
+            <p>Дополнительная информация:</p>
+            <p className='info-row__value'>{card?.address}</p>
         </div>
     </div>
   )

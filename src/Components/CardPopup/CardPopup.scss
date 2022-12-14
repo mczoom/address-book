@@ -1,5 +1,19 @@
+%name-font {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 121%;
+}
+
+%info-font {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 121%;
+}
+
+$container-width: 600px;
+
 .card-popup {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -16,23 +30,41 @@
 
 .card-popup__container {
     position: relative;
-    padding: 60px 90px;
-    width: 400px;
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 80px;
+    width: $container-width;
+    min-height: 300px;
     background-color: rgb(187, 182, 182);
     border-radius: 20px;
 }
 
-.card-popup__info-wrap {
-    display: flex;
-    column-gap: 80px;
+.card-popup__name {
+    @extend %name-font;
+    margin: 0;
+    margin-bottom: 40px;
 }
 
+.container__info-row {
+    display: flex;
+    margin-bottom: 18px;
+    @extend %info-font;
+}
+
+.info-row__title {
+    margin: 0;
+    min-width: 180px;
+    font-weight: 500;
+}
+
+.info-row__value {
+    margin: 0;
+}
 
 .card-popup__close-btn {
     position: absolute;
     top: -25px;
-    left: 280px;
+    left: calc($container-width / 2 + 40px);
     background-image: url(../../images/close-button.png);
     height: 40px;
     background-repeat: no-repeat;

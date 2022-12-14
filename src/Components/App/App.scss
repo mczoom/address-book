@@ -1,5 +1,9 @@
 $background-root: rgb(44, 42, 42);
-$background-content: rgb(107, 103, 103);
+$background-content: rgb(129, 124, 124);
+
+body {
+  margin: 0;
+}
 
 .page {
   background-color: $background-root;
