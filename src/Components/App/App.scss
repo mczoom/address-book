@@ -1,12 +1,12 @@
-$background-root: rgb(44, 42, 42);
+$background-root: rgb(95, 92, 92);
 $background-content: rgb(129, 124, 124);
 
 body {
   margin: 0;
+  background-color: $background-root;
 }
 
-.page {
-  background-color: $background-root;
+.main {
   font-family: 'Inter', 'Suisse', 'Arial', 'Helvetica', sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -14,9 +14,6 @@ body {
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
-}
-
-.main {
   display: flex;
   flex-direction: column;
   max-width: 1280px;
