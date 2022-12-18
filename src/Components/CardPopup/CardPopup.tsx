@@ -7,15 +7,43 @@ interface CardPopupProps {
     closePopup: () => void
 }
 
+interface InfoElement {
+    title: string
+    titleValue: string | undefined
+}
+
 export default function CardPopup({card, isPopupOpen, closePopup}: CardPopupProps) {
 
-    const popupClassName = `${isPopupOpen ? 'card-popup' : 'card-popup_hidden'}`
+    const popupClassName = `${isPopupOpen ? 'card-popup' : 'card-popup_hidden'}`;
+
+    const titles = [
+        {
+          'title': 'Телефон:',
+          'titleValue': card?.phone,
+        },
+        {
+          'title': 'Почта:',
+          'titleValue': card?.email,
+        },
+        {
+          'title': 'Дата приема:',
+          'titleValue': card?.hire_date,
+        },
+        {
+          'title': 'Должность:',
+          'titleValue': card?.position_name,
+        },
+        {
+          'title': 'Подразделение:',
+          'titleValue': card?.department,
+        },
+    ];
 
     function ClosePopupByOverlayClick (e: React.SyntheticEvent) {
         if(e.target === e.currentTarget) {
             closePopup();
         }
-    }
+    };
 
 
   return (
@@ -23,26 +51,14 @@ export default function CardPopup({card, isPopupOpen, closePopup}: CardPopupProp
         <div className='card-popup__container'>
             <button className='card-popup__close-btn' type='button' onClick={closePopup}></button>
             <p className='card-popup__name'>{card?.name}</p>
-            <div className='container__info-row'>
-                <p className='info-row__title'>Телефон:</p>
-                <p className='info-row__value'>{card?.phone}</p>
-            </div>
-            <div className='container__info-row'>
-                <p className='info-row__title'>Почта:</p>
-                <p className='info-row__value'>{card?.email}</p>
-            </div>
-            <div className='container__info-row'>
-                <p className='info-row__title'>Дата приема:</p>
-                <p className='info-row__value'>{card?.hire_date}</p>
-            </div>
-            <div className='container__info-row'>
-                <p className='info-row__title'>Должность:</p>
-                <p className='info-row__value'>{card?.position_name}</p>
-            </div>
-            <div className='container__info-row'>
-                <p className='info-row__title'>Подразделение:</p>
-                <p className='info-row__value'>{card?.department}</p>
-            </div>
+            <>
+              {titles.map((el: InfoElement) => (
+                <div className='container__info-row'>
+                <p className='info-row__title'>{el.title}</p>
+                <p className='info-row__value'>{el.titleValue || ''}</p>
+                </div>
+              ))}
+            </>
             <p>Дополнительная информация:</p>
             <p className='info-row__value'>{card?.address}</p>
         </div>
