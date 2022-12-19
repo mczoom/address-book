@@ -3,7 +3,7 @@ import Search from '../Search/Search';
 import {getAllCards} from '../../utils/Api'
 import CardsList from '../CardsList/CardsList';
 import CardPopup from '../CardPopup/CardPopup';
-import CardInterface from '../../models';
+import {CardInterface} from '../../models';
 
 
 function App() {

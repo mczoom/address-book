@@ -1,4 +1,4 @@
-export default interface CardInterface {
+export interface CardInterface {
     address: string
     department: string
     email: string
@@ -6,4 +6,9 @@ export default interface CardInterface {
     name: string
     phone: string
     position_name: string
+}
+
+export interface InfoElement {
+    title: string
+    titleValue: string | undefined
 }

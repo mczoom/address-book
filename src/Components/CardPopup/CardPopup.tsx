@@ -1,5 +1,6 @@
 import React from 'react';
-import CardInterface from '../../models';
+import {CardInterface, InfoElement} from '../../models';
+import CardPopupTitle from '../CardPopupTitle/CardPopupTitle';
 
 interface CardPopupProps {
     card?: CardInterface | null
@@ -7,10 +8,7 @@ interface CardPopupProps {
     closePopup: () => void
 }
 
-interface InfoElement {
-    title: string
-    titleValue: string | undefined
-}
+
 
 export default function CardPopup({card, isPopupOpen, closePopup}: CardPopupProps) {
 
@@ -39,6 +37,7 @@ export default function CardPopup({card, isPopupOpen, closePopup}: CardPopupProp
         },
     ];
 
+
     function ClosePopupByOverlayClick (e: React.SyntheticEvent) {
         if(e.target === e.currentTarget) {
             closePopup();
@@ -51,14 +50,11 @@ export default function CardPopup({card, isPopupOpen, closePopup}: CardPopupProp
         <div className='card-popup__container'>
             <button className='card-popup__close-btn' type='button' onClick={closePopup}></button>
             <p className='card-popup__name'>{card?.name}</p>
-            <>
-              {titles.map((el: InfoElement) => (
-                <div className='container__info-row'>
-                <p className='info-row__title'>{el.title}</p>
-                <p className='info-row__value'>{el.titleValue || ''}</p>
-                </div>
-              ))}
-            </>
+
+            {titles.map((el: InfoElement, i: number) => (
+                <CardPopupTitle card={card} el={el} i={i}/>
+            ))}
+
             <p>Дополнительная информация:</p>
             <p className='info-row__value'>{card?.address}</p>
         </div>

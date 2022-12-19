@@ -1,5 +1,5 @@
 import React from 'react';
-import CardInterface from '../../models';
+import {CardInterface} from '../../models';
 import callIcon from '../../images/icon-call.png';
 import emailIcon from '../../images/icon-mail.png';
 

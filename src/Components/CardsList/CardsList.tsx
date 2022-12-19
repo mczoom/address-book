@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import Card from '../Card/Card';
-import CardInterface from '../../models';
+import {CardInterface} from '../../models';
 
 interface CardListProps {
     allCards: CardInterface[]
